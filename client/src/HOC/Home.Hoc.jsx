@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 // Layout
 import HomeLayout from '../layouts/Homepage.layout';
@@ -7,17 +7,18 @@ import HomeLayout from '../layouts/Homepage.layout';
 function HomeLayoutHoc({component: Component,path, ...rest}) {
     return (
         <>
-        <Routes>
+        
         <Route
           {...rest}
           path={path}
-         element={
-             <HomeLayout>
-                 <Component/>
-             </HomeLayout>
+         component={
+             (props) => (
+                <HomeLayout {...props}>
+                <Component {...props}/>
+            </HomeLayout>
+             )
          } 
          />   
-        </Routes>
       </>
     );
 }
