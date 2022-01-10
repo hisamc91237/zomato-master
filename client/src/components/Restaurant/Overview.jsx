@@ -9,6 +9,7 @@ import { NextArrow, PrevArrow } from "../CarouselArrow";
 import MenuCollection from "./MenuCollection";
 import MenuSimilarRestaurantCard from "./MenuSimilarRestaurantCard";
 import ReviewCard from "./Reviews/ReviewCard";
+import MapView from "./MapView";
 
 function Overview() {
   const [menuImages, setMenuImages] = useState({
@@ -110,63 +111,76 @@ function Overview() {
             <h4 className="text-lg font-medium">Average Cost</h4>
             <h6>${averageCost} for one order (approx.)</h6>
             <small className="text-gray-500">
-              Exclusive of applicable taxes and charges, if any
+              Exclusive of applicable taxes and cahrges, if any
             </small>
           </div>
-          <div className="my-4">
-            <h4 className="text-lg font-medium">Similar Restaurants</h4>
-            <div>
-              <Slider {...settings}>
-                <MenuSimilarRestaurantCard
-                  image="https://b.zmtcdn.com/data/pictures/chains/3/307893/69f1fa33c357f755f7021b7e35d59380.jpg"
-                  title="tea"
-                />
-                <MenuSimilarRestaurantCard
-                  image="https://b.zmtcdn.com/data/pictures/chains/3/307893/69f1fa33c357f755f7021b7e35d59380.jpg"
-                  title="tea"
-                />
-                <MenuSimilarRestaurantCard
-                  image="https://b.zmtcdn.com/data/pictures/chains/3/307893/69f1fa33c357f755f7021b7e35d59380.jpg"
-                  title="tea"
-                />
-                <MenuSimilarRestaurantCard
-                  image="https://b.zmtcdn.com/data/pictures/chains/3/307893/69f1fa33c357f755f7021b7e35d59380.jpg"
-                  title="tea"
-                />
-                <MenuSimilarRestaurantCard
-                  image="https://b.zmtcdn.com/data/pictures/chains/3/307893/69f1fa33c357f755f7021b7e35d59380.jpg"
-                  title="tea"
-                />
-                <MenuSimilarRestaurantCard
-                  image="https://b.zmtcdn.com/data/pictures/chains/3/307893/69f1fa33c357f755f7021b7e35d59380.jpg"
-                  title="tea"
-                />
-              </Slider>
+
+          <div className="flex flex-col-reverse">
+            <div className="my-4">
+              <h4 className="text-lg font-medium">
+                Rate your delivery experience
+              </h4>
+              <ReactStars
+                count={5}
+                onChange={ratingChanged}
+                size={24}
+                activeColor="#ffd700"
+              />
+              {reviews.map((review, index) => (
+                <ReviewCard {...review} key={index} />
+              ))}
             </div>
-          </div>
-          <div className="my-4">
-            <h4 className="text-lg font-medium">
-              Rate your delivery experience
-            </h4>
-            <ReactStars
-              count={5}
-              onChange={ratingChanged}
-              size={24}
-              activeColor="#ffd700"
-            />
-            {reviews.map((review, index) => (
-              <ReviewCard {...review} key={index} />
-            ))}
-          </div>
-          <div className="my-4 w-full md:hidden flex flex-col gap-4">
-            ...Map Stuff
+            <div className="my-4">
+              <h4 className="text-lg font-medium">Similar Restaurants</h4>
+              <div>
+                <Slider {...settings}>
+                  <MenuSimilarRestaurantCard
+                    image="https://b.zmtcdn.com/data/pictures/chains/3/307893/69f1fa33c357f755f7021b7e35d59380.jpg"
+                    title="tea"
+                  />
+                  <MenuSimilarRestaurantCard
+                    image="https://b.zmtcdn.com/data/pictures/chains/3/307893/69f1fa33c357f755f7021b7e35d59380.jpg"
+                    title="tea"
+                  />
+                  <MenuSimilarRestaurantCard
+                    image="https://b.zmtcdn.com/data/pictures/chains/3/307893/69f1fa33c357f755f7021b7e35d59380.jpg"
+                    title="tea"
+                  />
+                  <MenuSimilarRestaurantCard
+                    image="https://b.zmtcdn.com/data/pictures/chains/3/307893/69f1fa33c357f755f7021b7e35d59380.jpg"
+                    title="tea"
+                  />
+                  <MenuSimilarRestaurantCard
+                    image="https://b.zmtcdn.com/data/pictures/chains/3/307893/69f1fa33c357f755f7021b7e35d59380.jpg"
+                    title="tea"
+                  />
+                  <MenuSimilarRestaurantCard
+                    image="https://b.zmtcdn.com/data/pictures/chains/3/307893/69f1fa33c357f755f7021b7e35d59380.jpg"
+                    title="tea"
+                  />
+                </Slider>
+              </div>
+            </div>
+            <div className="my-4 w-full md:hidden flex flex-col gap-4">
+              <MapView
+                title="McDonald's"
+                phno="+919234345634"
+                mapLocation={getLatLong("19.121667957301295, 72.83767660186557")}
+                address="Shop 5, 6, 7, 8, Ground Floor and Unit 5 on First floor, Shafi Mansion, Near Irla Petrol pump, Irla Society Road, Vile Parle West, Mumbai"
+              />
+            </div>
           </div>
         </div>
         <aside
           style={{ height: "fit-content" }}
           className="hidden md:flex md:w-4/12 sticky rounded-xl top-10 bg-white p-3 shadow-md flex-col gap-4"
         >
-          ...Map Stuff
+          <MapView
+            title="McDonald's"
+            phno="+919234345634"
+            mapLocation={getLatLong("19.121667957301295, 72.83767660186557")}
+            address="Shop 5, 6, 7, 8, Ground Floor and Unit 5 on First floor, Shafi Mansion, Near Irla Petrol pump, Irla Society Road, Vile Parle West, Mumbai"
+          />
         </aside>
       </div>
     </>
