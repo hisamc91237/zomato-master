@@ -8,6 +8,8 @@ import HomeLayoutHoc from "./HOC/Home.Hoc";
 
 //Pages
 import HomePage from "./pages/HomePage";
+import RestaurantLayoutHoc from "./HOC/Restaurant.hoc";
+import RestaurantPage from "./pages/RestaurantPage";
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
     <Redirect from='/' to="/delivery"/>
     <HomeLayoutHoc exact component={ HomePage} path="/" />
     <HomeLayoutHoc exact component={HomePage} path='/:type'/>
+    <RestaurantLayoutHoc path='/restaurant/:id' exact component={RestaurantPage}/>
     </>
   );
 }
