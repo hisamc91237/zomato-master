@@ -5,16 +5,21 @@ import { Redirect, Route } from 'react-router-dom';
 
 // Hoc
 import HomeLayoutHoc from "./HOC/Home.Hoc";
+import RestaurantLayoutHoc from "./HOC/Restaurant.hoc";
+import CheckoutLayoutHoc from './HOC/Checkout.hoc';
 
 //Pages
 import HomePage from "./pages/HomePage";
-import RestaurantLayoutHoc from "./HOC/Restaurant.hoc";
 import RestaurantPage from "./pages/RestaurantPage";
+import Checkout from "./pages/CheckoutPage";
+
+// components
 import Overview from "./components/Restaurant/Overview";
 import OrderOnline from "./components/Restaurant/OrderOnline";
 import Reviews from "./components/Restaurant/Reviews/Reviews";
 import Menu from "./components/Restaurant/Menu/Menu";
 import Photos from "./components/Restaurant/Photos/Photos";
+
 
 function App() {
   return (
@@ -30,6 +35,7 @@ function App() {
     <RestaurantLayoutHoc path='/restaurant/:id/reviews' exact component={Reviews}/>
     <RestaurantLayoutHoc path='/restaurant/:id/menu' exact component={Menu}/>
     <RestaurantLayoutHoc path='/restaurant/:id/photos' exact component={Photos}/>
+    <CheckoutLayoutHoc path='/checkout/orders' exact component={Checkout}/>
     </>
   );
 }

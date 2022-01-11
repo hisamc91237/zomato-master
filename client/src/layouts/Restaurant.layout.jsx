@@ -9,6 +9,7 @@ import ImageGrid from "../components/Restaurant/ImageGrid";
 import InfoButton from "../components/Restaurant/InfoButton";
 import RestaurantInfo from "../components/Restaurant/RestaurantInfo";
 import Tabs from "../components/Restaurant/Tabs";
+import CartContainer from "../components/Cart/CartContainer";
 
 function RestaurantLayout({ children }) {
   const [restaurant, setRestaurant] = useState({
@@ -41,7 +42,7 @@ function RestaurantLayout({ children }) {
           address={restaurant?.address}
         />
         <div className="my-4 flex flex-wrap gap-3 mx-auto">
-          <InfoButton isActive>
+          <InfoButton isActive={true}>
             <TiStarOutline /> Add Review
           </InfoButton>
           <InfoButton>
@@ -59,6 +60,7 @@ function RestaurantLayout({ children }) {
         </div>
         {children}
       </div>
+      <CartContainer />
     </>
   );
 }
