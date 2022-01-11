@@ -1,8 +1,8 @@
-//Library
+// Library
 import express from "express";
 import passport from "passport";
 
-//Models
+// Models
 import { UserModel } from "../../database/allModels";
 
 // Validation
@@ -14,7 +14,7 @@ const Router = express.Router();
 /**
  * Router       /signup
  * Des          Register new user
- * params       none
+ * Params       none
  * Access       Public
  * Method       POST
  */
@@ -32,8 +32,8 @@ Router.post("/signup", async (req, res) => {
 
 /**
  * Router       /signin
- * Des          Signin with email and password
- * params       none
+ * Des          Sign-in with email and password
+ * Params       none
  * Access       Public
  * Method       POST
  */
@@ -42,7 +42,7 @@ Router.post("/signin", async (req, res) => {
     await ValidateSignin(req.body.credentials);
     const user = await UserModel.findByEmailAndPassword(req.body.credentials);
     const token = user.generateJwtToken();
-    return res.status(200).json({ token, staus: "success" });
+    return res.status(200).json({ token, status: "success" });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
@@ -51,7 +51,7 @@ Router.post("/signin", async (req, res) => {
 /**
  * Router       /google
  * Des          Google signin
- * params       none
+ * Params       none
  * Access       Public
  * Method       GET
  */
@@ -68,7 +68,7 @@ Router.get(
 /**
  * Router       /google/callback
  * Des          Google signin callback
- * params       none
+ * Params       none
  * Access       Public
  * Method       GET
  */
@@ -81,4 +81,5 @@ Router.get(
       .json({ token: req.session.passport.user.token, status: "success" });
   }
 );
+
 export default Router;
