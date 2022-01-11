@@ -4,25 +4,120 @@ import { BiTimeFive } from "react-icons/bi";
 
 // components
 import FloatMenuBtn from "./Order-Online/FloatMenuBtn";
+import FoodList from "./Order-Online/FoodList";
 import MenuListContainer from "./Order-Online/MenuListContainer";
 
 function OrderOnline() {
   const [menu, setMenu] = useState([
     {
       name: "Recommended",
-      items: [],
+      items: [
+        {
+          name: "Dal Makhani",
+          image:
+            "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/20190503-delish-pineapple-baked-salmon-horizontal-ehg-450-1557771120.jpg",
+          isAddedToCart: false,
+          rating: 4,
+          description: "Whole black lentils cooked overnight . ",
+          price: "333",
+        },
+        {
+          name: "Murg Rara Boneless (6 pieces)",
+          image:
+            "https://b.zmtcdn.com/data/dish_photos/12e/96f768852181de77ff1b4b822866b12e.jpg",
+          isAddedToCart: true,
+          rating: 4,
+          description: "Whole black lentils cooked overnight . ",
+          price: "320",
+        },
+        {
+          name: "Veg Executive Thali",
+          image:
+            "https://b.zmtcdn.com/data/dish_photos/d2d/4e08401c19c04212ca3a4aed3355dd2d.jpg",
+          isAddedToCart: false,
+          rating: 4,
+          description: "Whole black lentils cooked overnight . ",
+          price: "345",
+        },
+        {
+          name: "Dal Makhani",
+          image:
+            "https://b.zmtcdn.com/data/dish_photos/e70/5e7413385f2c359c1148aea11a71fe70.jpg",
+          isAddedToCart: false,
+          rating: 4,
+          description: "Whole black lentils cooked overnight . ",
+          price: "333",
+        },
+      ],
     },
     {
       name: "Momos",
-      items: [],
+      items: [
+        {
+          name: "Veg Executive Thali",
+          image:
+            "https://b.zmtcdn.com/data/dish_photos/d2d/4e08401c19c04212ca3a4aed3355dd2d.jpg",
+          isAddedToCart: false,
+          rating: 4,
+          description: "Whole black lentils cooked overnight . ",
+          price: "345",
+        },
+        {
+          name: "Dal Makhani",
+          image:
+            "https://b.zmtcdn.com/data/dish_photos/e70/5e7413385f2c359c1148aea11a71fe70.jpg",
+          isAddedToCart: false,
+          rating: 4,
+          description: "Whole black lentils cooked overnight . ",
+          price: "333",
+        },
+      ],
     },
     {
       name: "Chinese Starters",
-      items: [],
+      items: [
+        {
+          name: "Veg Executive Thali",
+          image:
+            "https://b.zmtcdn.com/data/dish_photos/d2d/4e08401c19c04212ca3a4aed3355dd2d.jpg",
+          isAddedToCart: false,
+          rating: 4,
+          description: "Whole black lentils cooked overnight . ",
+          price: "345",
+        },
+        {
+          name: "Dal Makhani",
+          image:
+            "https://b.zmtcdn.com/data/dish_photos/e70/5e7413385f2c359c1148aea11a71fe70.jpg",
+          isAddedToCart: false,
+          rating: 4,
+          description: "Whole black lentils cooked overnight . ",
+          price: "333",
+        },
+      ],
     },
     {
       name: "Breads",
-      items: [],
+      items: [
+        {
+          name: "Veg Executive Thali",
+          image:
+            "https://b.zmtcdn.com/data/dish_photos/d2d/4e08401c19c04212ca3a4aed3355dd2d.jpg",
+          isAddedToCart: false,
+          rating: 4,
+          description: "Whole black lentils cooked overnight . ",
+          price: "345",
+        },
+        {
+          name: "Dal Makhani",
+          image:
+            "https://b.zmtcdn.com/data/dish_photos/e70/5e7413385f2c359c1148aea11a71fe70.jpg",
+          isAddedToCart: false,
+          rating: 4,
+          description: "Whole black lentils cooked overnight . ",
+          price: "333",
+        },
+      ],
     },
     {
       name: "Rice and Biryani",
@@ -63,9 +158,9 @@ function OrderOnline() {
             </h4>
           </div>
           <section className="flex h-screen overflow-y-scroll flex-col gap-3 md:gap-5">
-            {/* {menu.map((item, index) => (
+            {menu.map((item, index) => (
               <FoodList key={index} {...item} />
-            ))} */}
+            ))}
           </section>
         </div>
       </div>
