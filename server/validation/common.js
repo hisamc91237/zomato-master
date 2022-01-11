@@ -1,6 +1,6 @@
 import joi from "joi";
 
-export const ValidateRestuarantId = (id) => {
+export const ValidateRestaurantId = (id) => {
   const Schema = joi.object({
     _id: joi.string().required(),
   });

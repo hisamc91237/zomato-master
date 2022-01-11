@@ -11,7 +11,7 @@ const Router = express.Router();
 
 /**
  * Route        /
- * Des          GET all food based on particular restuarant
+ * Des          GET all food based on particular Restaurant
  * params       none
  * Access       Public
  * Method       GET
@@ -20,7 +20,7 @@ Router.get("/r/:_id", async (req, res) => {
   try {
     await validateId(req.params);
     const { _id } = req.params;
-    const foods = await FoodModel.find({ restuarant: _id });
+    const foods = await FoodModel.find({ Restaurant: _id });
 
     if (!foods)
       return res

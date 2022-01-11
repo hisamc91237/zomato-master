@@ -8,7 +8,7 @@ const Router = express.Router();
 
 /**
  * Route        /:res_id
- * Des          GET all reviews of particular restuarant
+ * Des          GET all reviews of particular Restaurant
  * params       resid
  * Access       Public
  * Method       GET
@@ -16,7 +16,7 @@ const Router = express.Router();
 Router.get("/:resid", async (req, res) => {
   try {
     const { resid } = req.params;
-    const reviews = await ReviewModel.find({ restuarants: resid });
+    const reviews = await ReviewModel.find({ Restaurants: resid });
 
     return res.json({ reviews });
   } catch (error) {

@@ -6,7 +6,7 @@
 - user (user and their details)
 - Images (Images and its details)
 - Reviews (Reviews and its details)
-- Resuarants (Restuarants and their details)
+- Resuarants (Restaurants and their details)
 - Order (Order and its details)
 - Mail (Mail and its details)
 - Payments (Payments and its details)
