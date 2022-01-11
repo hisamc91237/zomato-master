@@ -12,6 +12,9 @@ import RestaurantLayoutHoc from "./HOC/Restaurant.hoc";
 import RestaurantPage from "./pages/RestaurantPage";
 import Overview from "./components/Restaurant/Overview";
 import OrderOnline from "./components/Restaurant/OrderOnline";
+import Reviews from "./components/Restaurant/Reviews/Reviews";
+import Menu from "./components/Restaurant/Menu/Menu";
+import Photos from "./components/Restaurant/Photos/Photos";
 
 function App() {
   return (
@@ -24,9 +27,9 @@ function App() {
     <RestaurantLayoutHoc path='/restaurant/:id' exact component={RestaurantPage}/>
     <RestaurantLayoutHoc path='/restaurant/:id/overview' exact component={Overview}/>
     <RestaurantLayoutHoc path='/restaurant/:id/order-online' exact component={OrderOnline}/>
-    <RestaurantLayoutHoc path='/restaurant/:id/reviews' exact component={HomePage}/>
-    <RestaurantLayoutHoc path='/restaurant/:id/menu' exact component={HomePage}/>
-    <RestaurantLayoutHoc path='/restaurant/:id/photos' exact component={HomePage}/>
+    <RestaurantLayoutHoc path='/restaurant/:id/reviews' exact component={Reviews}/>
+    <RestaurantLayoutHoc path='/restaurant/:id/menu' exact component={Menu}/>
+    <RestaurantLayoutHoc path='/restaurant/:id/photos' exact component={Photos}/>
     </>
   );
 }
