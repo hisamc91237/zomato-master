@@ -29,7 +29,7 @@ function App() {
     </Route>
     <HomeLayoutHoc exact component={ HomePage} path="/" />
     <HomeLayoutHoc exact component={HomePage} path='/:type'/>
-    <RestaurantLayoutHoc path='/restaurant/:id' exact component={RestaurantPage}/>
+    <RestaurantLayoutHoc path='/restaurant/:id' exact component={Redirect}/>
     <RestaurantLayoutHoc path='/restaurant/:id/overview' exact component={Overview}/>
     <RestaurantLayoutHoc path='/restaurant/:id/order-online' exact component={OrderOnline}/>
     <RestaurantLayoutHoc path='/restaurant/:id/reviews' exact component={Reviews}/>
