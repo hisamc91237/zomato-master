@@ -1,4 +1,5 @@
 import "./App.css";
+import React,{useEffect} from 'react';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { Redirect, Route } from 'react-router-dom';
@@ -20,8 +21,19 @@ import Reviews from "./components/Restaurant/Reviews/Reviews";
 import Menu from "./components/Restaurant/Menu/Menu";
 import Photos from "./components/Restaurant/Photos/Photos";
 
+// redux
+import { useDispatch } from 'react-redux';
+import { getMySelf } from "./redux/reducers/user/user.action";
 
 function App() {
+  
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMySelf());
+  }, [localStorage]);
+
+
   return (
     <>
     <Route path = '/' exact>
