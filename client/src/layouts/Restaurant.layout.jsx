@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getSpecificRestaurant } from "../redux/reducers/restaurant/restaurant.action";
 import { getImage } from "../redux/reducers/image/image.action";
+import { getCart } from "../redux/reducers/cart/cart.action";
 
 // components
 import Navbar from "../components/Navbar";
@@ -45,6 +46,8 @@ function RestaurantLayout({ children }) {
         }));
       });
     });
+
+    dispatch(getCart());
   }, []);
 
   return (
