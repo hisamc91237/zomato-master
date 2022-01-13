@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { getUser } from "../../../redux/reducers/user/user.action";
 
 function ReviewCard(props) {
-  const [user, setUser] = useState("Aditya Gusain");
+  const [user, setUser] = useState("Hisamuddin Chandiwala");
   console.log(props);
 
   const dispatch = useDispatch();
@@ -46,7 +46,7 @@ function ReviewCard(props) {
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-3">
             <span className="text-white text-xs bg-green-700 px-2 py-1 rounded-lg flex items-center gap-1">
-              3 <TiStarFullOutline />
+              {props.rating} <TiStarFullOutline />
             </span>
             <h5 className="font-regular uppercase">
               {props.isRestaurantReview ? "Dining" : "Delivery"}
