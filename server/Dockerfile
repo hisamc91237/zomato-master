@@ -1,0 +1,16 @@
+FROM node:alpine
+
+WORKDIR /app
+COPY ./package.json ./
+RUN npm install
+COPY . .
+
+ENV MONGO_URL=mongodb+srv://HisamChandiwala:ayan2000@zomato-master.mytx6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+ENV GOOGLE_CLIENT_ID=57658307808-iil9uptq07kmrk7rvnd2rrj3u8e2vec6.apps.googleusercontent.com
+ENV GOOGLE_CLIENT_SECRET=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
+ENV AWS_S3_ACCESS_KEY=AKIATZPVMLT2Y75SZQHB
+ENV AWS_S3_SECRET_KEY=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
+ENV NODE_ENV=production
+ENV PORT=4000
+
+CMD ["npm", "run", "start"]
