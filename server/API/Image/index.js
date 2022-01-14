@@ -1,9 +1,8 @@
-// libary
+// Library
 import express from "express";
-import AWS from "aws-sdk";
 import multer from "multer";
 
-// Databse Modal
+// Database modal
 import { ImageModel } from "../../database/allModels";
 
 const Router = express.Router();
@@ -17,8 +16,8 @@ import { s3Upload } from "../../utils/s3";
 
 /**
  * Route        /
- * Des          Uploads image to S3 bucket and save files link to mongodb
- * params       none
+ * Des          Uploads given image to s3 bucket and saves file link to mongodb
+ * Params       none
  * Access       Public
  * Method       POST
  */
@@ -28,11 +27,11 @@ Router.post("/", upload.single("file"), async (req, res) => {
 
     // s3 bucket options
     const bucketOptions = {
-      Bucket: "hisam-zomato-master",
+      Bucket: "zomato-master-hisam",
       Key: file.originalname,
       Body: file.buffer,
       ContentType: file.mimetype,
-      // ACL: "public-read", //Access Control List
+      ACL: "public-read", // Access Controll List
     };
 
     const uploadImage = await s3Upload(bucketOptions);

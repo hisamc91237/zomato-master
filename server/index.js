@@ -7,16 +7,16 @@ import passport from "passport";
 // Database Connection
 import ConnectDB from "./database/connection";
 
+// google authentication config
+import googleAuthConfig from "./config/google.config";
+
 // private route authentication config
 import privateRouteConfig from "./config/route.config";
 
-// google authentication configs
-import googleAuthConfig from "./config/google.config";
-
 // API
 import Auth from "./API/Auth";
-import Food from "./API/Food";
 import Restaurant from "./API/Restaurant";
+import Food from "./API/Food";
 import Menu from "./API/Menu";
 import Image from "./API/Image";
 import Order from "./API/Orders";
@@ -32,13 +32,12 @@ zomato.use(cors());
 zomato.use(express.json());
 zomato.use(helmet());
 zomato.use(passport.initialize());
-//zomato.use(passport.session())
 
-// Application Roures
+// Application Routes
 zomato.use("/auth", Auth);
+zomato.use("/restaurant", Restaurant);
 zomato.use("/food", Food);
 zomato.use("/menu", Menu);
-zomato.use("/restaurant", Restaurant);
 zomato.use("/image", Image);
 zomato.use("/order", Order);
 zomato.use("/review", Review);
@@ -50,7 +49,7 @@ zomato.listen(4000, () => {
       console.log("Server is running !!!");
     })
     .catch((error) => {
-      console.log("Server is running, but database connection failed");
+      console.log("Server is running, but database connection failed...");
       console.log(error);
     });
 });

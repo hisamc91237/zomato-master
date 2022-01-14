@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
-const ReviewSchema = new mongoose.Schema(
+const ReviewSchema = mongoose.Schema(
   {
     food: { type: mongoose.Types.ObjectId, ref: "Foods" },
-    Restaurants: { type: mongoose.Types.ObjectId, ref: "Restaurants" },
+    restaurant: { type: mongoose.Types.ObjectId, ref: "Restaurants" },
     user: { type: mongoose.Types.ObjectId, ref: "Users" },
     rating: { type: Number, required: true },
     reviewText: { type: String, required: true },
